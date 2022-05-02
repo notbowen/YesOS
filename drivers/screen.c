@@ -39,7 +39,7 @@ void clear_screen() {
 // Usage: tprint_char(char)
 void tprint_char(char c) {
     // Calculate pos and index
-    uint16_t pos = get_cursor();  // TODO: Replace pos with get cursor pos
+    uint16_t pos = get_cursor();
     uint16_t index = getIndex(pos);
 
     // Get vidmem
@@ -73,11 +73,12 @@ void tprint_char(char c) {
     move_cursor(pos);
 }
 
-/* Doesn't Work */
-// Prints a string at a specified row & col
-// TODO: Write a print_at function
-void tprint(char* str) {
-
+// Prints a string at current cursor location
+void tprint(const char* msg) {
+    unsigned int* ptr = (unsigned int*) msg;
+    while (*ptr != 0) {
+        tprint_char(*ptr++);
+    }
 }
 
 /* Private Functions */

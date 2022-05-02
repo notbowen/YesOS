@@ -7,5 +7,6 @@ void main() {
     // tprint_char('\n');
     // tprint_char('Y');
 
-    tprint("Amogus\n");
+    char s[] = "Test String";
+    tprint(s);
 }
