@@ -16,7 +16,7 @@ os-image: main.bin kernel.bin
 	cat $^ > os-image
 
 kernel.elf: kernel/kernel_entry.o ${OBJ}
-	ld -o $@ -Ttext 0x1000 $^ 
+	ld -o $@ -Ttext 0x1000 $^ --entry main
 
 kernel.bin: kernel/kernel_entry.o ${OBJ}
 	ld -o $@ -Ttext 0x1000 $^ --oformat binary --entry main
