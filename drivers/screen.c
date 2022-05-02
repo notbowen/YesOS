@@ -76,8 +76,12 @@ void tprint_char(char c) {
 /* Doesn't Work */
 // Prints a string at a specified row & col
 // TODO: Write a print_at function
+void tprint(char* str) {
+
+}
 
 /* Private Functions */
+// Moves cursor to specified pos
 void move_cursor(uint16_t pos) {
     outb(CMD_PORT, HIGH_BYTE);
     outb(DATA_PORT, ((pos >> 8) & 0x00FF));
@@ -95,6 +99,7 @@ uint16_t get_cursor() {
     return pos;
 }
 
+// Gets the raw memory index from pos
 uint16_t getIndex(uint16_t pos) {
     return (pos * 2) + 1;
 }
