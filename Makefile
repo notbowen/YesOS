@@ -22,7 +22,7 @@ kernel.bin: kernel/kernel_entry.o ${OBJ}
 	ld -o $@ -Ttext 0x1000 $^ --oformat binary --entry main
 
 %.o : %.c ${HEADERS}
-	gcc -ggdb -ffreestanding -c $< -o $@
+	gcc -ggdb -O0 -ffreestanding -c $< -o $@
 	
 %.o : %.asm
 	nasm $< -f elf64 -o $@
