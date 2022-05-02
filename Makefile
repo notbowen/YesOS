@@ -34,3 +34,4 @@ clean:
 	rm -fr *.bin *.dis *.o
 	rm -fr kernel/*.o boot/*.bin drivers/*.o
 	rm os-image
+	rm kernel.elf
