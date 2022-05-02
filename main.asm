@@ -11,9 +11,7 @@
     call print_string
 
     call load_kernel
-
     call switch_to_pm
-
     jmp $
 
 %include "boot/print_string.asm"
