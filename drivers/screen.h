@@ -20,4 +20,4 @@
 /* Public Functions */
 void clear_screen();
 void tprint_char(char c);
-void tprint(const char* str);
+void tprint(char *str);

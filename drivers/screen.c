@@ -74,10 +74,12 @@ void tprint_char(char c) {
 }
 
 // Prints a string at current cursor location
-void tprint(const char* msg) {
-    unsigned int* ptr = (unsigned int*) msg;
-    while (*ptr != 0) {
-        tprint_char(*ptr++);
+void tprint(char *msg) {
+    msg++;
+
+    while (*msg != '\0') {
+        tprint_char(*msg);
+        msg++;
     }
 }
 
