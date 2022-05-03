@@ -6,10 +6,10 @@ OBJ = ${C_SOURCES:.c=.o}
 GDB = /usr/bin/gdb
 
 run: os-image
-	qemu-system-x86_64 -drive format=raw,file=os-image
+	qemu-system-x86_64 -fda os-image
 
 debug: os-image kernel.elf
-	qemu-system-x86_64 -drive format=raw,file=os-image -gdb tcp::1234 -S
+	qemu-system-x86_64 -fda os-image -gdb tcp::1234 -S
 # ${GDB} -ex "target remote localhost:1234" -ex "symbol-file kernel.elf"
 
 os-image: boot.bin kernel.bin
