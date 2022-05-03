@@ -1,7 +1,5 @@
 ; GDT
 gdt_start:
-
-gdt_null:  ; null descriptor
     dd 0x0
     dd 0x0
 
