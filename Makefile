@@ -5,15 +5,14 @@ OBJ = ${C_SOURCES:.c=.o}
 
 GDB = /usr/bin/gdb
 
-run: os-image
-	qemu-system-x86_64 -fda os-image
+run: os-image.bin
+	qemu-system-x86_64 -drive format=raw,file=os-image.bin,if=floppy
 
-debug: os-image kernel.elf
-	qemu-system-x86_64 -fda os-image -gdb tcp::1234 -S
-# ${GDB} -ex "target remote localhost:1234" -ex "symbol-file kernel.elf"
+debug: os-image.bin kernel.elf
+	qemu-system-x86_64 -drive format=raw,file=os-image.bin,if=floppy -gdb tcp::1234 -S
 
-os-image: boot.bin kernel.bin
-	cat $^ > os-image
+os-image.bin: boot.bin kernel.bin
+	cat $^ > os-image.bin
 
 kernel.elf: kernel/kernel_entry.o ${OBJ}
 	ld -o $@ -Ttext 0x1000 $^ --entry main
@@ -36,5 +35,4 @@ boot.bin: boot/boot.asm
 clean:
 	rm -fr *.bin *.dis *.o
 	rm -fr kernel/*.o boot/*.bin drivers/*.o
-	rm os-image
 	rm -fr *.elf
