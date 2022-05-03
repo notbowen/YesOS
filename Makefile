@@ -14,10 +14,10 @@ debug: os-image.bin kernel.elf
 os-image.bin: boot.bin kernel.bin
 	cat $^ > os-image.bin
 
-kernel.elf: kernel/kernel_entry.o ${OBJ}
+kernel.elf: boot/kernel_entry.o ${OBJ}
 	ld -o $@ -Ttext 0x1000 $^ --entry main
 
-kernel.bin: kernel/kernel_entry.o ${OBJ}
+kernel.bin: boot/kernel_entry.o ${OBJ}
 	ld -o $@ -Ttext 0x1000 $^ --oformat binary --entry main
 
 boot.bin: boot/boot.asm
