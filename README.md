@@ -1,5 +1,6 @@
 # YesOS
 Simple OS with 0 functionality, all it can do now is nothing :|
+
 (Moved to another project [here]("https://github.com/wHo69/SimpleOS"))
 
 ## Bugs
