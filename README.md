@@ -1,12 +1,8 @@
 # YesOS
 Simple OS with 0 functionality, all it can do now is nothing :|
 
-## Planned Features
-1. Print to screen
-2. Interactive shell
-3. Snek Game
-4. File System (Maybe?)
-5. Read/Write files?
+(Moved [here](https://github.com/wHo69/SimpleOS) cuz printing doesn't work)
+(apparently is cuz I compiled in 64 bit and ran in 32 bit :\)
 
 ## Bugs
 1. Print string breaks after 7 characters.
